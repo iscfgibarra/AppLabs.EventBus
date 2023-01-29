@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>AppLabs.EventBus</Title>
+        <Description>Implements Simple Event Bus pattern for NET applications</Description>
+        <Copyright>AppLabs©2023</Copyright>
+        <PackageProjectUrl>https://github.com/iscfgibarra/AppLabs.EventBus.git</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/iscfgibarra/AppLabs.EventBus.git</RepositoryUrl>
+        <PackageTags>Event Bus Pattern</PackageTags>
+    </PropertyGroup>
+
+</Project>

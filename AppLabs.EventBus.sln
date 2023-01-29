@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLabs.EventBus", "AppLabs.EventBus\AppLabs.EventBus.csproj", "{4ABCFE0E-DE67-4EBC-A7BB-7F3751B3BA9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLabs.EventBus.Test", "AppLabs.EventBus.Test\AppLabs.EventBus.Test.csproj", "{FD5E27C9-7351-496C-BB99-427CD40453A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4ABCFE0E-DE67-4EBC-A7BB-7F3751B3BA9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ABCFE0E-DE67-4EBC-A7BB-7F3751B3BA9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ABCFE0E-DE67-4EBC-A7BB-7F3751B3BA9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ABCFE0E-DE67-4EBC-A7BB-7F3751B3BA9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD5E27C9-7351-496C-BB99-427CD40453A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD5E27C9-7351-496C-BB99-427CD40453A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD5E27C9-7351-496C-BB99-427CD40453A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD5E27C9-7351-496C-BB99-427CD40453A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
