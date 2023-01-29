@@ -11,6 +11,9 @@
         <PackageProjectUrl>https://github.com/iscfgibarra/AppLabs.EventBus.git</PackageProjectUrl>
         <RepositoryUrl>https://github.com/iscfgibarra/AppLabs.EventBus.git</RepositoryUrl>
         <PackageTags>Event Bus Pattern</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Authors>Francisco Ibarra</Authors>
+        <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
     <ItemGroup>
