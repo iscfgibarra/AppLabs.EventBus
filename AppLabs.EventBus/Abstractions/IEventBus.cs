@@ -7,4 +7,5 @@ public interface IEventBus
     Task Publish<TEvent>(List<TEvent> evnts, EventArgs args) where TEvent : BaseEvent;
     void UnSubscribe<TEvent>(SubsToken subsToken) where TEvent : BaseEvent;
     bool HasSubscription<TEvent>(SubsToken subsToken) where TEvent : BaseEvent;
+    bool HasSubscriptions<TEvent>() where TEvent : BaseEvent;
 }

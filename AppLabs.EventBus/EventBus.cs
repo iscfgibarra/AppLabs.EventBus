@@ -2,7 +2,7 @@
 
 namespace AppLabs.EventBus;
 
-public class EventBus: IEventBus
+public class EventBus : IEventBus
 {
     private readonly IDictionary<Type, List<ISubscription>> _subscriptions;
 
@@ -30,42 +30,50 @@ public class EventBus: IEventBus
 
     public async Task Publish<TEvent>(TEvent evnt, EventArgs args) where TEvent : BaseEvent
     {
-        var allSubscriptions = _subscriptions?[typeof(TEvent)];
-
-        if (allSubscriptions != null)
+        if (!_subscriptions.ContainsKey(typeof(TEvent)))
         {
-            foreach (var subscription in allSubscriptions)
+            return;
+        }
+
+        foreach (var subscription in _subscriptions[typeof(TEvent)])
+        {
+            await subscription.Publish(evnt, args);
+        }
+    }
+
+    public async Task Publish<TEvent>(List<TEvent> evnts, EventArgs args) where TEvent : BaseEvent
+    {
+        if (!_subscriptions.ContainsKey(typeof(TEvent)))
+        {
+            return;
+        }
+
+        foreach (var subscription in _subscriptions[typeof(TEvent)])
+        {
+            foreach (var evnt in evnts)
             {
                 await subscription.Publish(evnt, args);
             }
         }
     }
 
-    public async Task Publish<TEvent>(List<TEvent> evnts, EventArgs args) where TEvent : BaseEvent
-    {
-        var allSubscriptions = _subscriptions?[typeof(TEvent)];
-
-        if (allSubscriptions != null)
-        {
-            foreach (var subscription in allSubscriptions)
-            {
-                foreach (var evnt in evnts)
-                {
-                    await subscription.Publish(evnt, args);
-                }
-            }
-        }
-    }
-    
     public void UnSubscribe<TEvent>(SubsToken subsToken) where TEvent : BaseEvent
     {
-        var subscription = _subscriptions[typeof(TEvent)].FirstOrDefault(x => x.SubsToken.SubscriptionId == subsToken.SubscriptionId);
+        var subscription = _subscriptions[typeof(TEvent)]
+            .FirstOrDefault(x => x.SubsToken.SubscriptionId == subsToken.SubscriptionId);
         if (subscription != null)
             _subscriptions[typeof(TEvent)].Remove(subscription);
     }
 
     public bool HasSubscription<TEvent>(SubsToken subsToken) where TEvent : BaseEvent
     {
-        return _subscriptions[typeof(TEvent)].Any(x => x.SubsToken.SubscriptionId == subsToken.SubscriptionId);
+        var key = typeof(TEvent);
+        return _subscriptions.ContainsKey(key) && _subscriptions[key].Any(x => x.SubsToken.SubscriptionId == subsToken.SubscriptionId);
+    }
+
+    public bool HasSubscriptions<TEvent>() where TEvent : BaseEvent
+    {
+        var key = typeof(TEvent);
+        return _subscriptions.ContainsKey(key) && _subscriptions[key].Any();
     }
 }

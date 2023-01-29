@@ -13,4 +13,10 @@
         <PackageTags>Event Bus Pattern</PackageTags>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Content Include="..\README.md">
+        <Link>Documentation\README.md</Link>
+      </Content>
+    </ItemGroup>
+
 </Project>
